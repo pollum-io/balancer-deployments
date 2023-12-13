@@ -42,4 +42,7 @@ export default {
   fantom: {
     admin: '0x4fbe899d37fb7514adf2f41B0630E018Ec275a0C',
   },
+  rollux: {
+    admin: '0xE45AfbC34b20910A353288aa60b989bB931bf485',
+  },
 };

@@ -46,7 +46,7 @@ task('deploy', 'Run deployment task')
   .setAction(
     async (args: { id: string; force?: boolean; key?: string; verbose?: boolean }, hre: HardhatRuntimeEnvironment) => {
       Logger.setDefaults(false, args.verbose || false);
-
+      console.log(`Deploying ${hre.network.name}...`);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const apiKey = args.key ?? (hre.config.networks[hre.network.name] as any).verificationAPIKey;
       const verifier = apiKey ? new Verifier(hre.network, apiKey) : undefined;
@@ -455,6 +455,14 @@ export default {
         urls: {
           apiURL: 'https://api.ftmscan.com/api',
           browserURL: 'https://ftmscan.com',
+        },
+      },
+      {
+        network: 'rollux',
+        chainId: 570,
+        urls: {
+          apiURL: 'https://explorer.rollux.com/api',
+          browserURL: 'https://explorer.rollux.com/',
         },
       },
     ],
